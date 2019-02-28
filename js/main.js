@@ -25,21 +25,21 @@ $("select").each(function () {
 
 // define images
 var images = [
-    '../img/sequences/fort/FortClinch0001.png',
-    '../img/sequences/fort/FortClinch0002.png',
-    '../img/sequences/fort/FortClinch0003.png',
-    '../img/sequences/fort/FortClinch0004.png',
-    '../img/sequences/fort/FortClinch0005.png',
-    '../img/sequences/fort/FortClinch0006.png',
-    '../img/sequences/fort/FortClinch0007.png',
-    '../img/sequences/fort/FortClinch0008.png',
-    '../img/sequences/fort/FortClinch0009.png',
-    '../img/sequences/fort/FortClinch0010.png',
-    '../img/sequences/fort/FortClinch0011.png',
-    '../img/sequences/fort/FortClinch0012.png',
-    '../img/sequences/fort/FortClinch0013.png',
-    '../img/sequences/fort/FortClinch0014.png',
-    '../img/sequences/fort/FortClinch0015.png'
+    './img/sequences/fort/FortClinch0001.png',
+    './img/sequences/fort/FortClinch0002.png',
+    './img/sequences/fort/FortClinch0003.png',
+    './img/sequences/fort/FortClinch0004.png',
+    './img/sequences/fort/FortClinch0005.png',
+    './img/sequences/fort/FortClinch0006.png',
+    './img/sequences/fort/FortClinch0007.png',
+    './img/sequences/fort/FortClinch0008.png',
+    './img/sequences/fort/FortClinch0009.png',
+    './img/sequences/fort/FortClinch0010.png',
+    './img/sequences/fort/FortClinch0011.png',
+    './img/sequences/fort/FortClinch0012.png',
+    './img/sequences/fort/FortClinch0013.png',
+    './img/sequences/fort/FortClinch0014.png',
+    './img/sequences/fort/FortClinch0015.png'
 ];
 
 // TweenMax can tween any property of any object. We use this object to cycle through the array
@@ -84,12 +84,16 @@ var scene = new ScrollMagic.Scene({
         }
     });
 
-    //fix MAILCHIMP FORM
-    (function ($) {
+/////fix MAILCHIMP FORM////////
+(function ($) {
     var $submit = $('input[type="submit"]');
     $('.horizontal-group').each(function (i) {
         var checkboxDiv = $(this).find('.checkbox').length > 0;
-        console.log(checkboxDiv);
+        $(this).find('.field').each(function () {
+            if ($(this).find('input,select,textarea').length == 0) {
+                $(this).remove();
+            }
+        });
         if (i != 0 && !checkboxDiv) {
             $(this).children('.field').unwrap();
         }
@@ -97,5 +101,6 @@ var scene = new ScrollMagic.Scene({
     var $lastField = $('.field:last');
     var instructions = $lastField.text();
     $lastField.html($submit).addClass('submit-wrapper');
+    $('<span class="error-wrapper"><div class="form-error" style="display: none;"></div></span>').appendTo($('.form-grid .form'))
     $('<p class="instructions center-text color gray">' + instructions + '</p>').appendTo($('.form-grid'));
-    })(jQuery);
+})(jQuery);

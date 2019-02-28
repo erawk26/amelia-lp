@@ -1,46 +1,63 @@
-@import 'vars';
-@import 'form-overrides';
-@import 'mixins';
-@import 'landing';
+@import "vars";
+@import "form-overrides";
+@import "mixins";
+@import "landing";
 ////////////////
 .all-caps {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .center-text {
-	text-align: center;
+  text-align: center;
 }
 img.maxw {
-	display: block;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .bgcolor {
-	&.lt-gray {
-		background: #efefef;
-	}
-	&.white {
-		background: #fff;
-	}
-	&.gray {
-		background: #444;
-	}
-	&.aqua {
-		background: #3caeac;
-	}
+  &.lt-gray {
+    background: #efefef;
+  }
+  &.white {
+    background: #fff;
+  }
+  &.gray {
+    background: #444;
+  }
+  &.aqua {
+    background: #3caeac;
+  }
 }
 .color {
-	&.white {
-		color: #fff;
-	}
-	&.lt-gray {
-		color: #efefef;
-	}
-	&.gray {
-		color: #444;
-	}
-	&.aqua {
-		color: #3caeac;
-	}
+  &.white {
+    color: #fff;
+  }
+  &.lt-gray {
+    color: #efefef;
+  }
+  &.gray {
+    color: #444;
+  }
+  &.aqua {
+    color: #3caeac;
+  }
 }
-.flex-col{@include flexx($direction:column)}
+.flex-col {
+  @include flexx($direction: column);
+  &.start {
+    @include flexx(flex-start, $direction: column);
+  }
+  &.end {
+    @include flexx(flex-end, $direction: column);
+  }
+}
+.flex-row {
+  @include flexx();
+  &.left {
+    @include flexx(flex-start);
+  }
+  &.right {
+    @include flexx(flex-end);
+  }
+}

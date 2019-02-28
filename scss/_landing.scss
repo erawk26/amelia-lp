@@ -1,5 +1,6 @@
+#mmg-amelia-app-lp{
 .hero {
-	background: url(img/header-bgimg.jpg);
+	background: url(../img/header-bgimg.jpg);
 	position: relative;
 	background-position: center;
 	background-size: cover;
@@ -13,7 +14,7 @@
 }
 .bottom-panel{
     @extend .hero;
-    background: url(img/footer-bgimg.jpg);
+    background: url(../img/footer-bgimg.jpg);
 }
 a.scroll-down {
 	position: absolute;
@@ -25,7 +26,15 @@ h1 {
 	@extend .color.aqua, .all-caps;
 	text-align: center;
 }
-
+.section-content{
+    height: 100%;
+    width: 100%;
+    @include set-max-width;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
 .form-grid {
 	padding: 30px 0;
 	max-width: 100%;
@@ -93,4 +102,5 @@ h1 {
 	grid-row-gap: 20px;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: auto 1fr 1fr 1fr auto;
+}
 }
