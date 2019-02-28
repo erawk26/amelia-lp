@@ -1,0 +1,12 @@
+#ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz_ncpmostinterestedin,
+h2:not(.headline),
+.horizontal-group,
+.field:nth-of-type(9) {
+	display: none;
+}
+div#ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz_ncpemail {
+	overflow: hidden;
+	input {
+		width: 100%;
+	}
+}

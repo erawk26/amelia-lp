@@ -1,0 +1,116 @@
+
+
+@mixin set-max-width($max: $page-max-width) {
+  max-width: $max;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin marding($mg: 0, $pd: 0) {
+  //margin & padding combo
+  margin: $mg;
+  padding: $pd;
+}
+@mixin flexx(
+  $justify: center,
+  $align: center,
+  $direction: false,
+  $wrap: false,
+  $display: flex,
+  $aligncontent: false
+) {
+  @if $display == flex {
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+  } @else {
+    display: -ms-inline-flexbox;
+    display: -moz-inline-flex;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+  }
+  @if $direction {
+    @include flexprop(flex-direction, $direction);
+  }
+  @if $wrap {
+    @include flexprop(flex-wrap, $wrap);
+  }
+  @if $justify {
+    @include flexprop(justify-content, $justify);
+  }
+  @if $align {
+    @include flexprop(align-items, $align);
+  }
+  @if $aligncontent {
+    @include flexprop(align-content, $aligncontent);
+  }
+}
+
+@mixin flexchild(
+  $flexgrow: 1,
+  $flexshrink: 0,
+  $flexbasis: auto,
+  $order: false,
+  $alignself: false
+) {
+  @if $order {
+    @include flexprop(order, $order);
+  }
+  @include flexprop(flex, ($flexgrow $flexshrink $flexbasis));
+  @if $alignself {
+    @include flexprop(align-self, $alignself);
+  }
+}
+
+@function ieflexvalue($value) {
+  @if $value == flex-start {
+    @return start;
+  }
+  @if $value == flex-end {
+    @return end;
+  }
+  @if $value == space-between {
+    @return justify;
+  }
+  @if $value == space-around {
+    @return distribute;
+  }
+  @if $value == justify-content {
+    @return flex-pack;
+  }
+  @if $value == align-items {
+    @return flex-align;
+  }
+  @if $value == align-content {
+    @return flex-line-pack;
+  }
+  @if $value == align-self {
+    @return flex-item-align;
+  }
+  @if $value == order {
+    @return flex-order;
+  }
+  @return $value;
+}
+
+@mixin flexprop($prop, $value) {
+  -webkit-#{$prop}: $value;
+  -moz-#{$prop}: $value;
+  -ms-#{ieflexvalue($prop)}: ieflexvalue($value);
+  #{$prop}: $value;
+}
+
+@mixin flex-grid($num: 3, $x: 5px, $y: $x) {
+  margin-top: -$y;
+  margin-left: -$x;
+  width: auto;
+  & > * {
+    margin-top: $y;
+    margin-left: $x;
+    box-sizing: border-box;
+    @include flexchild(1, 0, calc((99.5% / #{$num}) - #{$x}));
+    min-width: calc((99.5% / #{$num}) - #{$x});
+    max-width: calc((100% / #{$num}) - #{$x});
+  }
+}
