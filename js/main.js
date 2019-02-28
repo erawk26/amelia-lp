@@ -60,9 +60,9 @@ var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({
-    triggerElement: "#fortTrigger",
-    duration: 600,
-    offset: -300
+    triggerElement: "#imagesequence",
+    duration: '60%',
+    triggerHook:.85
 })
     .setTween(tween)
     .addIndicators("trigger") // add indicators (requires plugin)
