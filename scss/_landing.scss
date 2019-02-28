@@ -8,12 +8,7 @@
     position: relative;
     background-position: center;
     background-size: cover;
-    .aspect-spacer {
-      width: 100%;
-      height: 0;
-      padding: 0 0 57% 0;
-      transition: padding-bottom 1s ease;
-    }
+
   }
   .bottom-panel {
     @extend .hero;
@@ -42,6 +37,28 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    &.rel {
+      position: relative;
+      left: unset;
+      top: unset;
+      transform: none;
+    }
+  }
+  section > .video {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -5;
+    video.background-video {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   .form-grid {
     padding: 30px 0;
@@ -82,6 +99,17 @@
       position: relative;
       z-index: 10;
     }
+  }
+  img.guide {
+    transform: translate(-10%,25%);
+    width: auto;
+    height: 80%;
+    max-width: 1200px;
+  }
+  div#imagesequence {
+    position: absolute;
+    left: 50%;
+    transform: translate(-40%, 25%);
   }
   img#ameliaFort {
     max-width: 400px;
