@@ -17,16 +17,16 @@ img.maxw {
 }
 .bgcolor {
   &.lt-gray {
-    background: #efefef;
+    background: $lt-gray;
   }
   &.white {
     background: #fff;
   }
   &.gray {
-    background: #444;
+    background: $gray;
   }
   &.aqua {
-    background: #3caeac;
+    background:$aqua;
   }
 }
 .color {
@@ -34,13 +34,13 @@ img.maxw {
     color: #fff;
   }
   &.lt-gray {
-    color: #efefef;
+    color: $lt-gray;
   }
   &.gray {
-    color: #444;
+    color: $gray;
   }
   &.aqua {
-    color: #3caeac;
+    color: $aqua;
   }
 }
 .flex-col {

@@ -1,106 +1,155 @@
-#mmg-amelia-app-lp{
-.hero {
-	background: url(../img/header-bgimg.jpg);
-	position: relative;
-	background-position: center;
-	background-size: cover;
-	.aspect-spacer{
-		width: 100%;
-		height: 0;
-		padding: 0 0 57% 0;
-		transition:padding-bottom 1s ease;
-		@media (max-width:480px){padding-bottom:100%}
-	}
-}
-.bottom-panel{
+#mmg-amelia-app-lp {
+  * {
+    box-sizing: border-box;
+  }
+  font-family: "Raleway", sans-serif;
+  .hero {
+    background-image: url(../img/header-bgimg.jpg);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    .aspect-spacer {
+      width: 100%;
+      height: 0;
+      padding: 0 0 57% 0;
+      transition: padding-bottom 1s ease;
+    }
+  }
+  .bottom-panel {
     @extend .hero;
-    background: url(../img/footer-bgimg.jpg);
-}
-a.scroll-down {
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	transform: translateX(-50%);
-}
-h1 {
-	@extend .color.aqua, .all-caps;
-	text-align: center;
-}
-.section-content{
+    background-image: url(../img/footer-bgimg.jpg);
+  }
+  a.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  h1 {
+    color: $aqua;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  section {
+    position: relative;
+  }
+  .section-content {
+    padding: 5% 0;
     height: 100%;
     width: 100%;
     @include set-max-width;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
-}
-.form-grid {
-	padding: 30px 0;
-	max-width: 100%;
-	.form {
-		max-width: 100%;
-	}
-}
-label {
-	background: white;
-	font-size: 0.65em;
-	display: inline-flex;
-	align-items: center;
-	width: auto;
-	height: auto;
-	overflow: visible;
-	top: 50%;
-	left: 0;
-	padding: 5px 15px;
-	border-radius: 7px 7px 0 0;
-	transform: translateY(-50%);
-	position: absolute;
-	white-space: nowrap;
-	text-transform: uppercase;
-	transition: top 200ms ease-in;
-	&.slide-up {
-		top: -2px;
-	}
-}
-.spacer {
-	height: 50vh;
-}
-$maxw: 700px;
-.form.full-wide.new-form,
-.instructions {
-	max-width: $maxw;
-	margin: 0 auto;
-}
-.field {
-	position: relative;
-	display: inline-block;
+    transform: translate(-50%, -50%);
+  }
+  .form-grid {
+    padding: 30px 0;
+    max-width: 100%;
+    h1,
+    .error-wrapper {
+      grid-column: 1 / -1;
+    }
+    .form {
+      max-width: 100%;
+      display: grid;
+      grid-column-gap: 30px;
+      grid-row-gap: 20px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  label {
+    background: white;
+    font-size: 0.65em;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    top: 50%;
+    left: 0;
+    padding: 5px 15px;
+    border-radius: 7px 7px 0 0;
+    transform: translateY(-50%);
+    position: absolute;
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: top 200ms ease-in;
+    &.slide-up {
+      top: -2px;
+    }
+    & + div {
+      position: relative;
+      z-index: 10;
+    }
+  }
+  img#ameliaFort {
+    max-width: 400px;
+  }
+  $formMaxw: 750px;
+  .form.full-wide.new-form,
+  .instructions {
+    @include set-max-width(750px);
+  }
+  .field {
+    background: #fff;
+    position: relative;
+    display: block;
 
-	input,
-	select,
-	textarea {
-		@extend .bgcolor.white;
-		&:focus {
-			outline: 0;
-		}
-		border: none;
-		padding: 15px;
-		&[type="submit"] {
-			width: 100%;
-			@extend .bgcolor.aqua, .all-caps, .color.white;
-		}
-	}
-}
-
-/////GRID///////
-h1 {
-	grid-column: 1 /span 3;
-}
-.form-grid .form {
-	display: grid;
-	grid-column-gap: 30px;
-	grid-row-gap: 20px;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: auto 1fr 1fr 1fr auto;
-}
+    input,
+    select,
+    textarea {
+      background: transparent;
+      &:focus {
+        outline: 0;
+      }
+      border: none;
+      padding: 15px;
+      &[type="submit"] {
+        background: $aqua;
+        width: 100%;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+    &.submit-wrapper {
+      background: $aqua;
+    }
+  }
+  .app-cta {
+    img {
+      width: 121px;
+      height: 36px;
+    }
+  }
+  /////Media Queries///////
+  @media (max-width: 767px) {
+    .FormPanel,
+    .instructions {
+      padding: 0 30px;
+    }
+    .form-grid .form {
+      grid-template-columns: 1fr 1fr;
+    }
+    .submit-wrapper {
+      grid-column: 1 / -1;
+    }
+    .hero {
+      min-height: 50vh;
+    }
+    .bottom-panel {
+      min-height: 0;
+    }
+  }
+  @media (max-width: 479px) {
+    .hero .aspect-spacer {
+      padding-bottom: 100%;
+    }
+    .field:not(.submit-wrapper) {
+      margin-bottom: 20px;
+    }
+    .form-grid .form {
+      display: block;
+    }
+  }
 }

@@ -51,7 +51,7 @@ var tween = TweenMax.to(obj, 0.5, {
     immediateRender: true, // load first image automatically
     ease: Linear.easeNone, // show every image the same ammount of time
     onUpdate: function () {
-        $("#myimg").attr("src", images[obj.curImg]); // set the image source
+        $("#ameliaFort").attr("src", images[obj.curImg]); // set the image source
     }
 });
 
@@ -60,7 +60,7 @@ var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({
-    triggerElement: "#trigger",
+    triggerElement: "#fortTrigger",
     duration: 600,
     offset: -300
 })
