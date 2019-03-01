@@ -94,7 +94,8 @@ var scene = new ScrollMagic.Scene({
                 $(this).remove();
             }
         });
-        if (i != 0 && !checkboxDiv) {
+        if (i == 0) { $(this).children('.field').addClass('guide-cbox').children('p').remove();}
+        if (i == 0 || !checkboxDiv) {
             $(this).children('.field').unwrap();
         }
     });
