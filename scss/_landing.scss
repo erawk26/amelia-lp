@@ -105,7 +105,7 @@ article#mmg-amelia-app-lp {
       z-index: 10;
     }
   }
-  .fort-sequence {
+  section.fort-sequence {
     img.guide {
       @include translate(-10%, 25%);
       width: auto;
@@ -121,6 +121,16 @@ article#mmg-amelia-app-lp {
     img#ameliaFort {
       max-width: 400px;
       width: 100%;
+    }
+    & > .video video.background-video {
+    top: unset;
+    min-width: unset;
+    min-height: unset;
+    left: 50%;
+    bottom: 0px;
+    height: 85%;
+    width: auto;
+    @include translateX(-50%)
     }
   }
   .form.full-wide.new-form,
