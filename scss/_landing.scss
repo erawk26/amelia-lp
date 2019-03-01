@@ -5,10 +5,14 @@ article#mmg-amelia-app-lp {
   font-family: Raleway, sans-serif;
   width: 100%;
   .heading {
+    line-height: 1;
     font-size: 44px;
+    @extend .bold;
   }
   .subheading {
-    font-size: 26px;
+    font-size: 1.4em;
+    line-height: 1.2;
+    margin-top: 0;
   }
   .hero {
     background-image: url(../img/header-bgimg.jpg);
@@ -26,17 +30,12 @@ article#mmg-amelia-app-lp {
     left: 50%;
     @include translateX(-50%);
   }
-  h1 {
-    color: $aqua;
-    text-transform: uppercase;
-    text-align: center;
-  }
   section {
     position: relative;
   }
   .section-content {
     z-index: 10;
-    padding: 5% 0;
+    padding: 5% 30px;
     height: 100%;
     width: 100%;
     @include set-max-width;
@@ -73,6 +72,11 @@ article#mmg-amelia-app-lp {
   .form-grid {
     padding: 30px 0;
     max-width: 100%;
+    h1 {
+      color: $aqua;
+      text-transform: uppercase;
+      text-align: center;
+    }
     h1,
     .error-wrapper {
       grid-column: 1 / -1;
@@ -121,15 +125,20 @@ article#mmg-amelia-app-lp {
   }
   section.fort-sequence {
     img.guide {
-      @include translate(-10%, 25%);
+      position: absolute;
+      @include translate(-7%, 25%);
       width: auto;
-      height: 80%;
+      bottom: 75px;
+      height: 63%;
       max-width: 1200px;
+    }
+    .section-content {
+      z-index: 10;
     }
     div#imagesequence {
       position: absolute;
       left: 50%;
-
+      bottom: 250px;
       @include translate(-40%, 25%);
     }
     img#ameliaFort {
@@ -160,7 +169,6 @@ article#mmg-amelia-app-lp {
     @include set-max-width(750px);
   }
   .field {
-
     @include marding;
     background: #fff;
     position: relative;
@@ -199,7 +207,10 @@ article#mmg-amelia-app-lp {
       display: block;
       height: 100%;
     }
-    .input-row{@include flexx(flex-start);padding: 5px 15px;}
+    .input-row {
+      @include flexx(flex-start);
+      padding: 5px 15px;
+    }
   }
   .app-cta {
     img {
@@ -209,11 +220,12 @@ article#mmg-amelia-app-lp {
   }
   /////Media Queries///////
   @media (max-width: 767px) {
+.space-bottom{padding-bottom:400px;}
     .heading {
       font-size: 36px;
     }
     .subheading {
-      font-size: 24px;
+      font-size: 1.2em;
     }
     img#ameliaFort {
       width: 60%;
@@ -239,11 +251,11 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 479px) {
+.space-bottom{padding-bottom:300px;}
     .heading {
       font-size: 26px;
     }
     .subheading {
-      font-size: 18px;
     }
     .aspect-spacer {
       padding-bottom: 100%;

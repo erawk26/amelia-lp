@@ -83,7 +83,6 @@ var scene = new ScrollMagic.Scene({
             }
         }
     });
-
 /////fix MAILCHIMP FORM////////
 (function ($) {
     var $submit = $('input[type="submit"]');

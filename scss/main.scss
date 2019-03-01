@@ -4,74 +4,81 @@
 @import "mixins";
 @import "landing";
 ////////////////
-.bold{font-weight:700}
-.all-caps {
-  text-transform: uppercase;
-}
-.center-text {
-  text-align: center;
-}
-.full-width {
-  display: block;
-  width: 100%;
-}
-img.maxw {
-  display: block;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.aspect-spacer {
-  width: 100%;
-  height: 0;
-  padding: 0 0 57% 0;
-  transition: padding-bottom 1s ease;
-}
-.bgcolor {
-  &.lt-gray {
-    background: $lt-gray;
+article#mmg-amelia-app-lp {
+  .bold {
+    font-weight: 700;
   }
-  &.white {
-    background: #fff;
+  .all-caps {
+    text-transform: uppercase;
   }
-  &.gray {
-    background: $gray;
+  .center-text {
+    text-align: center;
   }
-  &.aqua {
-    background: $aqua;
+  .full-width {
+    display: block;
+    width: 100%;
   }
-}
-.color {
-  &.white {
-    color: #fff;
+  img.maxw {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
-  &.lt-gray {
-    color: $lt-gray;
+  .space-bottom {
+    padding-bottom: 500px;
   }
-  &.gray {
-    color: $gray;
+  .aspect-spacer {
+    width: 100%;
+    height: 0;
+    padding: 0 0 57% 0;
+    transition: padding-bottom 1s ease;
   }
-  &.aqua {
-    color: $aqua;
+  .bgcolor {
+    &.lt-gray {
+      background: $lt-gray;
+    }
+    &.white {
+      background: #fff;
+    }
+    &.gray {
+      background: $gray;
+    }
+    &.aqua {
+      background: $aqua;
+    }
   }
-}
-.flex-col {
-  @include flexx($direction: column);
-  &.start {
-    @include flexx(flex-start, $direction: column);
+  .color {
+    &.white {
+      color: #fff;
+    }
+    &.lt-gray {
+      color: $lt-gray;
+    }
+    &.gray {
+      color: $gray;
+    }
+    &.aqua {
+      color: $aqua;
+    }
   }
-  &.end {
-    @include flexx(flex-end, $direction: column);
+  .flex-col {
+    @include flexx($direction: column);
+    &.start {
+      @include flexx(flex-start, $direction: column);
+    }
+    &.end {
+      @include flexx(flex-end, $direction: column);
+    }
   }
-}
-.flex-row {
-  @include flexx($wrap: wrap);
-  &.start,
-  &.left {
-    @include flexx(flex-start, $wrap: wrap);
-  }
-  &.end,
-  &.right {
-    @include flexx(flex-end, $wrap: wrap);
+  .flex-row {
+    @include flexx($wrap: wrap);
+    &.start,
+    &.left {
+      @include flexx(flex-start, $wrap: wrap);
+    }
+    &.end,
+    &.right {
+      @include flexx(flex-end, $wrap: wrap);
+    }
   }
 }
