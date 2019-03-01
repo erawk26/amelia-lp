@@ -1,3 +1,4 @@
+@import "compass";
 @import "vars";
 @import "form-overrides";
 @import "mixins";
@@ -60,10 +61,10 @@ img.maxw {
 }
 .flex-row {
   @include flexx();
-  &.left {
+  &.start,&.left {
     @include flexx(flex-start);
   }
-  &.right {
+  &.end,&.right {
     @include flexx(flex-end);
   }
 }

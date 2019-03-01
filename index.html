@@ -7,9 +7,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://www.ameliaisland.com/library/css/screen.min.css?v=1.9.3">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="https://www.ameliaisland.com/library/js/vendor/modernizr.custom.55491.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
             </div>
             <div class="aspect-spacer"></div>
         </section>
-        <section class="img-sequence center-text">
+        <section class="fort-sequence center-text">
             <div class="section-content flex-col">
                 <div id="fortTrigger"></div>
                 <img class="guide" src="./img/guide.png" alt="Guide">
@@ -34,7 +36,7 @@
             <div class="aspect-spacer"></div>
             <div class="video looping">
                 <video class="background-video" muted="true" loop="true" playsinline="" autoplay=""
-                    poster="">
+                    poster="./img/header-bgimg.jpg">
                     <source type="video/mp4"
                         src="./video/sea_oats.mp4">
                 </video>
@@ -43,8 +45,7 @@
             <div id="ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_sys_pnlUpdate">
                 <div id="ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz">
                     <div class="FormPanel"
-                        id="ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz_pnlForm"
-                        onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz_btnOK')">
+                        id="ctl00_mainContent_ctl01_lt_formZone_On_lineFormWithMailchimp_plcUp_viewBiz_pnlForm">
                         <div class="form full-wide new-form">
                             <h1>Request a Visitor's Guide</h1>
                             <div class="horizontal-group">
@@ -367,14 +368,19 @@
             </div>
         </section>
         <section class="bottom-panel">
-            <div class="section-content rel flex-col start">
+            <div class="section-content flex-col start">
                 <h2 class="headline color gray center-text all-caps">Already Have Guide?</h2>
                 <p class="color gray center-text">Download blah blah blah</p>
             </div>
             <div class="aspect-spacer"></div>
+            <div class="video looping">
+                <video class="background-video" muted="true" loop="true" playsinline="" autoplay="" poster="./img/footer-bgimg.jpg">
+                    <source type="video/mp4" src="./video/lighthouse.mp4">
+                </video>
+            </div>
         </section>
         <section class="app-cta">
-            <div class="section-content flex-row">
+            <div class="section-content rel flex-row">
                 <a href="http://www.ameliaislandtrip.com/clkn/https/play.google.com/store/apps/details?id=com.ameliaisland"
                     target="_blank" data-params="true"><img src="./img/play_store.svg" alt="Google Play"></a>
                 <a href="http://www.ameliaislandtrip.com/clkn/https/itunes.apple.com/us/app/amelia-island-mobile-app/id1440066251"
@@ -382,9 +388,8 @@
         </section>
     </article>
 
-  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
