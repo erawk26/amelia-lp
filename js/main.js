@@ -24,25 +24,22 @@ $("select").each(function () {
 });
 
 // define images
-var images = [
-    './img/sequences/fort/FortClinch0001.png',
-    './img/sequences/fort/FortClinch0002.png',
-    './img/sequences/fort/FortClinch0003.png',
-    './img/sequences/fort/FortClinch0004.png',
-    './img/sequences/fort/FortClinch0005.png',
-    './img/sequences/fort/FortClinch0006.png',
-    './img/sequences/fort/FortClinch0007.png',
-    './img/sequences/fort/FortClinch0008.png',
-    './img/sequences/fort/FortClinch0009.png',
-    './img/sequences/fort/FortClinch0010.png',
-    './img/sequences/fort/FortClinch0011.png',
-    './img/sequences/fort/FortClinch0012.png',
-    './img/sequences/fort/FortClinch0013.png',
-    './img/sequences/fort/FortClinch0014.png',
-    './img/sequences/fort/FortClinch0015.png'
-];
 
-// TweenMax can tween any property of any object. We use this object to cycle through the array
+function buildImgArray(folder, fileName, n) {
+    Number.prototype.pad = function (size) {
+        var sign = Math.sign(this) === -1 ? '-' : '';
+        return sign + new Array(size).concat([Math.abs(this)]).join('0').slice(-size);
+    }
+    var arr=[]
+    for(i=0;i<n;i++){
+        arr.push('./img/sequences/' + folder + '/' + fileName+ i.pad(2) +'.png');
+    }
+    return arr;
+}
+
+////FORT ANIMATION
+var images = buildImgArray('fort', 'FortClinch00', 15);
+// console.log(images,gull_images,turtle_images);
 var obj = { curImg: 0 };
 var tween = TweenMax.to(obj, 0.5, {
     curImg: images.length - 1, // animate propery curImg to number of images
@@ -57,16 +54,57 @@ var tween = TweenMax.to(obj, 0.5, {
 
 // init controller
 var controller = new ScrollMagic.Controller();
-
 // build scene
 var scene = new ScrollMagic.Scene({
-    triggerElement: "#imagesequence",
+    triggerElement: ".fort-sequence",
     duration: '60%',
-    triggerHook:.85
+    triggerHook: .85
 })
     .setTween(tween)
     .addIndicators("trigger") // add indicators (requires plugin)
     .addTo(controller);
+
+
+//// TURTLE ANIMATION
+var turtle_images = buildImgArray('turtle', 'Turtle00', 16);
+// console.log(images,gull_images,turtle_images);
+var turtle_obj = { curImg: 0 };
+var turtle_tween = TweenMax.to(turtle_obj, 0.5, {
+    curImg: turtle_images.length - 1, // animate propery curImg to number of images
+    roundProps: "curImg", // only integers so it can be used as an array index
+    repeat: -1, // repeat
+    immediateRender: true, // load first image automatically
+    ease: Linear.easeNone, // show every image the same ammount of time
+    onUpdate: function () {
+        $("#ameliaTurtle").attr("src", turtle_images[turtle_obj.curImg]); // set the image source
+    }
+});
+//// GULL ANIMATION
+var gull_images = buildImgArray('gulls', 'Gulls00', 50);
+// console.log(images,gull_images,gull_images);
+var gull_obj = { curImg: 0 };
+var gull_tween = TweenMax.to(gull_obj, 0.5, {
+    curImg: gull_images.length - 1, // animate propery curImg to number of images
+    roundProps: "curImg", // only integers so it can be used as an array index
+    repeat: -1, // repeat
+    immediateRender: true, // load first image automatically
+    ease: Linear.easeNone, // show every image the same ammount of time
+    onUpdate: function () {
+        $("#ameliaGull").attr("src", gull_images[gull_obj.curImg]); // set the image source
+    }
+});
+
+// init controller
+var hero_controller = new ScrollMagic.Controller();
+// build scene
+var hero_scene = new ScrollMagic.Scene({
+    triggerElement: ".hero",
+    duration: 0,
+})
+    .setTween(gull_tween)
+    .setTween(turtle_tween)
+    .addIndicators("hero_trigger") // add indicators (requires plugin)
+    .addTo(hero_controller);
 
 
 
