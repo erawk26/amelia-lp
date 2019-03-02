@@ -220,7 +220,10 @@ article#mmg-amelia-app-lp {
   }
   /////Media Queries///////
   @media (max-width: 767px) {
-.space-bottom{padding-bottom:400px;}
+    .aspect-spacer,
+    .space-bottom {
+      padding-bottom: 75%;
+    }
     .heading {
       font-size: 36px;
     }
@@ -229,9 +232,6 @@ article#mmg-amelia-app-lp {
     }
     img#ameliaFort {
       width: 60%;
-    }
-    .aspect-spacer {
-      padding-bottom: 80%;
     }
     .FormPanel,
     .instructions {
@@ -251,14 +251,14 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 479px) {
-.space-bottom{padding-bottom:300px;}
+    .aspect-spacer,
+    .space-bottom {
+      padding-bottom: 100%;
+    }
     .heading {
       font-size: 26px;
     }
     .subheading {
-    }
-    .aspect-spacer {
-      padding-bottom: 100%;
     }
     .field:not(.submit-wrapper) {
       margin-bottom: 20px;

@@ -69,30 +69,42 @@ var scene = new ScrollMagic.Scene({
 var turtle_images = buildImgArray('turtle', 'Turtle00', 16);
 // console.log(images,gull_images,turtle_images);
 var turtle_obj = { curImg: 0 };
-var turtle_tween = TweenMax.to(turtle_obj, 0.5, {
-    curImg: turtle_images.length - 1, // animate propery curImg to number of images
-    roundProps: "curImg", // only integers so it can be used as an array index
-    repeat: -1, // repeat
-    immediateRender: true, // load first image automatically
-    ease: Linear.easeNone, // show every image the same ammount of time
-    onUpdate: function () {
-        $("#ameliaTurtle").attr("src", turtle_images[turtle_obj.curImg]); // set the image source
-    }
-});
 //// GULL ANIMATION
 var gull_images = buildImgArray('gulls', 'Gulls00', 50);
 // console.log(images,gull_images,gull_images);
 var gull_obj = { curImg: 0 };
-var gull_tween = TweenMax.to(gull_obj, 0.5, {
-    curImg: gull_images.length - 1, // animate propery curImg to number of images
-    roundProps: "curImg", // only integers so it can be used as an array index
-    repeat: -1, // repeat
-    immediateRender: true, // load first image automatically
-    ease: Linear.easeNone, // show every image the same ammount of time
-    onUpdate: function () {
+var hero_tween = new TimelineMax();
+hero_tween
+  .to(
+    turtle_obj,
+    0.5,
+    {
+      curImg: turtle_images.length - 1, // animate propery curImg to number of images
+      roundProps: "curImg", // only integers so it can be used as an array index
+      repeat: -1, // repeat
+      immediateRender: true, // load first image automatically
+      ease: Linear.easeNone, // show every image the same ammount of time
+      onUpdate: function() {
+        $("#ameliaTurtle").attr("src", turtle_images[turtle_obj.curImg]); // set the image source
+      }
+    },
+    0
+  )
+  .to(
+    gull_obj,
+    0.5,
+    {
+      curImg: gull_images.length - 1, // animate propery curImg to number of images
+      roundProps: "curImg", // only integers so it can be used as an array index
+      repeat: -1, // repeat
+      immediateRender: true, // load first image automatically
+      ease: Linear.easeNone, // show every image the same ammount of time
+      onUpdate: function() {
         $("#ameliaGull").attr("src", gull_images[gull_obj.curImg]); // set the image source
-    }
-});
+      }
+    },
+    0
+  );
 
 // init controller
 var hero_controller = new ScrollMagic.Controller();
@@ -101,8 +113,7 @@ var hero_scene = new ScrollMagic.Scene({
     triggerElement: ".hero",
     duration: 0,
 })
-    .setTween(gull_tween)
-    .setTween(turtle_tween)
+    .setTween(hero_tween)
     .addIndicators("hero_trigger") // add indicators (requires plugin)
     .addTo(hero_controller);
 
