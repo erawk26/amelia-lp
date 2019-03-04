@@ -191,11 +191,9 @@ article#mmg-amelia-app-lp {
   }
   .form.full-wide.new-form,
   .instructions {
-
     @include set-max-width(750px);
-  }
-  .instructions {
-   font-size:.65em;
+    font-size: 0.8em;
+    line-height: 1.25;
   }
   .field {
     @include marding;
@@ -251,6 +249,11 @@ article#mmg-amelia-app-lp {
     }
   }
   /////Media Queries///////
+  @media (min-width: 768px) and(max-width: 959px) {
+    .hero .space-bottom {
+      padding-bottom: 65%;
+    }
+  }
   @media (max-width: 767px) {
     .section-content {
       padding-top: 50px;
@@ -258,7 +261,7 @@ article#mmg-amelia-app-lp {
     section {
       .aspect-spacer,
       .space-bottom {
-        padding-bottom: 75%;
+        padding-bottom: 115%;
       }
     }
     .heading {
@@ -269,7 +272,6 @@ article#mmg-amelia-app-lp {
     }
     .FormPanel,
     .instructions {
-
       padding: 0 30px;
     }
     .form-grid .form {
@@ -284,6 +286,17 @@ article#mmg-amelia-app-lp {
     .bottom-panel {
       min-height: 0;
     }
+    .hero {
+      #imagesequence2 {
+        bottom: 10%;
+        left: 40%;
+      }
+
+      #imagesequence3 {
+        left: 45%;
+        bottom: 45%;
+      }
+    }
   }
   @media (max-width: 479px) {
     section {
@@ -294,7 +307,7 @@ article#mmg-amelia-app-lp {
       }
       .aspect-spacer,
       .space-bottom {
-        padding-bottom: 600px;
+        padding-bottom: 650px;
       }
     }
     .heading {
