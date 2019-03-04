@@ -6,11 +6,11 @@ article#mmg-amelia-app-lp {
   width: 100%;
   .heading {
     line-height: 1;
-    font-size: 44px;
+    font-size: 42px;
     @extend .bold;
   }
   .subheading {
-    font-size: 1.4em;
+    font-size: 1.2em;
     line-height: 1.2;
     margin-top: 0;
   }
@@ -19,7 +19,26 @@ article#mmg-amelia-app-lp {
     position: relative;
     background-position: center;
     background-size: cover;
+    #imagesequence2 {
+      bottom: 3%;
+      left: 40%;
+      width: 60%;
+    }
+    #imagesequence3 {
+      bottom: 39%;
+      left: 44%;
+      width: 45%;
+    }
+    .imagesequence {
+      position: absolute;
+      transform: translateX(-50%);
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
   }
+
   .bottom-panel {
     @extend .hero;
     background-image: url(../img/footer-bgimg.jpg);
@@ -29,6 +48,7 @@ article#mmg-amelia-app-lp {
     bottom: 20px;
     left: 50%;
     @include translateX(-50%);
+    z-index: 199;
   }
   section {
     position: relative;
@@ -76,6 +96,8 @@ article#mmg-amelia-app-lp {
       color: $aqua;
       text-transform: uppercase;
       text-align: center;
+      font-weight: 500;
+      font-size: 1.5em;
     }
     h1,
     .error-wrapper {
@@ -125,25 +147,27 @@ article#mmg-amelia-app-lp {
   }
   section.fort-sequence {
     img.guide {
-      position: absolute;
-      @include translate(-7%, 25%);
-      width: auto;
-      bottom: 75px;
-      height: 63%;
-      max-width: 1200px;
+      position: relative;
+      padding: 40px 0 100px;
+      transform: translate(-18%, 100px);
+    }
+    #ameliaFort {
+      -webkit-filter: drop-shadow(0 23px 4px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0 23px 4px rgba(0, 0, 0, 0.35));
     }
     .section-content {
       z-index: 10;
     }
-    div.imagesequence {
+    .imagesequence {
       position: absolute;
-      left: 50%;
-      bottom: 250px;
-      @include translate(-40%, 25%);
-    }
-    img#ameliaFort {
-      max-width: 400px;
-      width: 100%;
+      left: 74%;
+      bottom: 10%;
+      @include translate(-50%, -50%);
+      width: 65%;
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
     & > .video video.background-video {
       top: unset;
@@ -151,7 +175,8 @@ article#mmg-amelia-app-lp {
       min-height: unset;
       left: 50%;
       bottom: 0px;
-      height: 85%;
+      height: 60%;
+      opacity: 0.35;
       width: auto;
       &:nth-of-type(1) {
         left: 54%;
@@ -166,7 +191,11 @@ article#mmg-amelia-app-lp {
   }
   .form.full-wide.new-form,
   .instructions {
+
     @include set-max-width(750px);
+  }
+  .instructions {
+   font-size:.65em;
   }
   .field {
     @include marding;
@@ -213,6 +242,9 @@ article#mmg-amelia-app-lp {
     }
   }
   .app-cta {
+    h2 {
+      font-size: 1.5em;
+    }
     img {
       width: 121px;
       height: 36px;
@@ -220,21 +252,24 @@ article#mmg-amelia-app-lp {
   }
   /////Media Queries///////
   @media (max-width: 767px) {
-    .aspect-spacer,
-    .space-bottom {
-      padding-bottom: 75%;
+    .section-content {
+      padding-top: 50px;
+    }
+    section {
+      .aspect-spacer,
+      .space-bottom {
+        padding-bottom: 75%;
+      }
     }
     .heading {
       font-size: 36px;
     }
     .subheading {
-      font-size: 1.2em;
-    }
-    img#ameliaFort {
-      width: 60%;
+      //   font-size: 1.2em;
     }
     .FormPanel,
     .instructions {
+
       padding: 0 30px;
     }
     .form-grid .form {
@@ -251,9 +286,16 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 479px) {
-    .aspect-spacer,
-    .space-bottom {
-      padding-bottom: 100%;
+    section {
+      &.fort-sequence .imagesequence {
+        left: 60%;
+        bottom: 4%;
+        width: 60%;
+      }
+      .aspect-spacer,
+      .space-bottom {
+        padding-bottom: 600px;
+      }
     }
     .heading {
       font-size: 26px;

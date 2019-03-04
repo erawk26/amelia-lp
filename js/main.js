@@ -26,11 +26,11 @@ $("select").each(function () {
 // define images
 
 function buildImgArray(folder, fileName, n) {
-    Number.prototype.pad = function (size) {
+    Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
         var sign = Math.sign(this) === -1 ? '-' : '';
         return sign + new Array(size).concat([Math.abs(this)]).join('0').slice(-size);
     }
-    var arr=[]
+    var arr=[];
     for(i=0;i<n;i++){
         arr.push('./img/sequences/' + folder + '/' + fileName+ i.pad(2) +'.png');
     }
@@ -41,7 +41,7 @@ function buildImgArray(folder, fileName, n) {
 var images = buildImgArray('fort', 'FortClinch00', 15);
 // console.log(images,gull_images,turtle_images);
 var obj = { curImg: 0 };
-var tween = TweenMax.to(obj, 0.5, {
+var tween = TweenMax.to(obj, 0.75, {
     curImg: images.length - 1, // animate propery curImg to number of images
     roundProps: "curImg", // only integers so it can be used as an array index
     repeat: 0, // repeat 3 times
@@ -56,12 +56,12 @@ var tween = TweenMax.to(obj, 0.5, {
 var controller = new ScrollMagic.Controller();
 // build scene
 var scene = new ScrollMagic.Scene({
-    triggerElement: ".fort-sequence",
-    duration: '60%',
+    triggerElement: ".fort-sequence .guide",
+    duration: '85%',
     triggerHook: .85
 })
     .setTween(tween)
-    .addIndicators("trigger") // add indicators (requires plugin)
+    .addIndicators("FORT trigger") // add indicators (requires plugin)
     .addTo(controller);
 
 
@@ -77,7 +77,7 @@ var hero_tween = new TimelineMax();
 hero_tween
   .to(
     turtle_obj,
-    0.5,
+    2.5,
     {
       curImg: turtle_images.length - 1, // animate propery curImg to number of images
       roundProps: "curImg", // only integers so it can be used as an array index
@@ -92,7 +92,7 @@ hero_tween
   )
   .to(
     gull_obj,
-    0.5,
+    1.5,
     {
       curImg: gull_images.length - 1, // animate propery curImg to number of images
       roundProps: "curImg", // only integers so it can be used as an array index
@@ -114,7 +114,7 @@ var hero_scene = new ScrollMagic.Scene({
     duration: 0,
 })
     .setTween(hero_tween)
-    .addIndicators("hero_trigger") // add indicators (requires plugin)
+    // .addIndicators("hero_trigger") // add indicators (requires plugin)
     .addTo(hero_controller);
 
 
