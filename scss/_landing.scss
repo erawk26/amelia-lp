@@ -12,21 +12,25 @@ article#mmg-amelia-app-lp {
   .subheading {
     font-size: 1.2em;
     line-height: 1.2;
-    @include marding(0,0 8%)
+    @include marding(0, 0 8%);
   }
   .hero {
     background-image: url(../img/header-bgimg.jpg);
     position: relative;
-    background-position: center;
+    background-position: center bottom;
     background-size: cover;
     #imagesequence2 {
+      //turtle
       bottom: 3%;
       left: 40%;
+      //   width: 540px;
       width: 60%;
     }
     #imagesequence3 {
+      //gulls
       bottom: 39%;
       left: 44%;
+      //   width: 507px;
       width: 45%;
     }
     .imagesequence {
@@ -35,6 +39,18 @@ article#mmg-amelia-app-lp {
       img {
         height: auto;
         width: 100%;
+      }
+    }
+    .sequence-wrap {
+      //not sure this is going to be used... its a  guide for better image positions
+      border: 2px dotted red;
+      width: 20%;
+      margin: 30px auto 10%;
+      > span {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 205%;
       }
     }
   }
@@ -120,7 +136,7 @@ article#mmg-amelia-app-lp {
 
   *:not(.checkbox) > {
     label {
-        font-weight:500;
+      font-weight: 500;
       background: white;
       font-size: 14px;
       display: inline-flex;
@@ -131,14 +147,14 @@ article#mmg-amelia-app-lp {
       top: 50%;
       left: 0;
       padding: 0 15px;
-    //   border-radius: 7px 7px 0 0;
+      //   border-radius: 7px 7px 0 0;
       @include translateY(-50%);
       position: absolute;
       white-space: nowrap;
       text-transform: uppercase;
       transition: top 200ms ease-in, opacity 200ms ease-in;
       &.slide-up {
-        opacity: 0;//slide up doesnt look right with the comp
+        opacity: 0; //slide up doesnt look right with the comp
         // top: -2px;
       }
       & + div {
@@ -238,6 +254,7 @@ article#mmg-amelia-app-lp {
     }
     .select > select,
     span div {
+      text-transform: capitalize;
       display: block;
       height: 100%;
     }
@@ -300,15 +317,26 @@ article#mmg-amelia-app-lp {
       #imagesequence2 {
         bottom: 10%;
         left: 40%;
+        // width:441px;
       }
 
       #imagesequence3 {
         left: 45%;
         bottom: 45%;
+        // width:414px;
       }
     }
   }
   @media (max-width: 479px) {
+    .hero {
+      #imagesequence2 {
+        width: 414px;
+      }
+
+      #imagesequence3 {
+        width: 397px;
+      }
+    }
     section {
       &.fort-sequence .imagesequence {
         left: 60%;
