@@ -12,7 +12,7 @@ article#mmg-amelia-app-lp {
   .subheading {
     font-size: 1.2em;
     line-height: 1.2;
-    margin-top: 0;
+    @include marding(0,0 8%)
   }
   .hero {
     background-image: url(../img/header-bgimg.jpg);
@@ -58,7 +58,7 @@ article#mmg-amelia-app-lp {
     padding: 5% 30px;
     height: 100%;
     width: 100%;
-    @include set-max-width;
+    @include set-max-width(1125px);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -248,7 +248,7 @@ article#mmg-amelia-app-lp {
   }
   .app-cta {
     .section-content {
-      padding: 5px 30px 20px;
+      padding: 10px 30px 20px;
     }
     h2 {
       font-size: 1.5em;
