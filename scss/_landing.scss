@@ -120,8 +120,9 @@ article#mmg-amelia-app-lp {
 
   *:not(.checkbox) > {
     label {
+        font-weight:500;
       background: white;
-      font-size: 0.65em;
+      font-size: 14px;
       display: inline-flex;
       align-items: center;
       width: auto;
@@ -130,14 +131,15 @@ article#mmg-amelia-app-lp {
       top: 50%;
       left: 0;
       padding: 0 15px;
-      border-radius: 7px 7px 0 0;
+    //   border-radius: 7px 7px 0 0;
       @include translateY(-50%);
       position: absolute;
       white-space: nowrap;
       text-transform: uppercase;
-      transition: top 200ms ease-in;
+      transition: top 200ms ease-in, opacity 200ms ease-in;
       &.slide-up {
-        top: -2px;
+        opacity: 0;//slide up doesnt look right with the comp
+        // top: -2px;
       }
       & + div {
         position: relative;
@@ -148,7 +150,9 @@ article#mmg-amelia-app-lp {
   section.fort-sequence {
     img.guide {
       position: relative;
-      padding: 40px 0 100px;
+      width: 89%;
+      height: auto;
+      margin: 40px 0 100px;
       transform: translate(-18%, 100px);
     }
     #ameliaFort {
@@ -200,11 +204,11 @@ article#mmg-amelia-app-lp {
     background: #fff;
     position: relative;
     display: block;
-
     input,
     select,
     textarea {
       background: transparent;
+      font-size: 16px;
       &:focus {
         outline: 0;
       }
@@ -216,6 +220,9 @@ article#mmg-amelia-app-lp {
         color: #fff;
         text-transform: uppercase;
       }
+    }
+    .control-group-inline > span {
+      height: 100%;
     }
     .select {
       display: block;
@@ -240,6 +247,9 @@ article#mmg-amelia-app-lp {
     }
   }
   .app-cta {
+    .section-content {
+      padding: 5px 30px 20px;
+    }
     h2 {
       font-size: 1.5em;
     }
