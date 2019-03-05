@@ -64,7 +64,7 @@ var scene = new ScrollMagic.Scene({
     triggerHook: .85
 })
     .setTween(tween)
-    .addIndicators("FORT trigger") // add indicators (requires plugin)
+    // .addIndicators("FORT trigger") // add indicators (requires plugin)
     .addTo(controller);
 
 
