@@ -281,6 +281,9 @@ article#mmg-amelia-app-lp {
     }
   }
   /////Media Queries///////
+  @media (max-width: 959px){
+      overflow: hidden;
+  }
   @media (min-width: 768px) and(max-width: 959px) {
     .hero .space-bottom {
       padding-bottom: 65%;
