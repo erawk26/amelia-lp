@@ -33,7 +33,8 @@ function buildImgArray(folder, fileName, n, x) {
     }
     var arr=[];
     for(i=0;i<n;i++){
-        if(i%x<0.5){//using this to lessen the picture count if needed.
+
+        if (i % x ==0){//using this to lessen the picture count if needed.
         arr.push('./img/sequences/' + folder + '/' + fileName+ i.pad(2) +'.png');
         }
     }
@@ -41,8 +42,8 @@ function buildImgArray(folder, fileName, n, x) {
 }
 
 ////FORT ANIMATION
-var images = buildImgArray('fort-small', 'FortClinch00', 50, 2);
-console.log(images);
+var images = buildImgArray('fort-small', 'FortClinch00', 50);
+// console.log(images);
 var obj = { curImg: 0 };
 var tween = TweenMax.to(obj, 0.75, {
     curImg: images.length - 1, // animate propery curImg to number of images
@@ -76,49 +77,49 @@ var turtle_obj = { curImg: 0 };
 var gull_images = buildImgArray('gulls', 'Gulls00', 50,2);
 // console.log(images,gull_images,gull_images);
 var gull_obj = { curImg: 0 };
-var hero_tween = new TimelineMax();
-hero_tween
-  .to(
-    turtle_obj,
-    2.5,
-    {
-      curImg: turtle_images.length - 1, // animate propery curImg to number of images
-      roundProps: "curImg", // only integers so it can be used as an array index
-      repeat: -1, // repeat
-      immediateRender: true, // load first image automatically
-      ease: Linear.easeNone, // show every image the same ammount of time
-      onUpdate: function() {
-        $("#ameliaTurtle").attr("src", turtle_images[turtle_obj.curImg]); // set the image source
-      }
-    },
-    0
-  )
-  .to(
-    gull_obj,
-    1.5,
-    {
-      curImg: gull_images.length - 1, // animate propery curImg to number of images
-      roundProps: "curImg", // only integers so it can be used as an array index
-      repeat: -1, // repeat
-      immediateRender: true, // load first image automatically
-      ease: Linear.easeNone, // show every image the same ammount of time
-      onUpdate: function() {
-        $("#ameliaGull").attr("src", gull_images[gull_obj.curImg]); // set the image source
-      }
-    },
-    0
-  );
+// var hero_tween = new TimelineMax();
+// hero_tween
+//   .to(
+//     turtle_obj,
+//     2.5,
+//     {
+//       curImg: turtle_images.length - 1, // animate propery curImg to number of images
+//       roundProps: "curImg", // only integers so it can be used as an array index
+//       repeat: -1, // repeat
+//       immediateRender: true, // load first image automatically
+//       ease: Linear.easeNone, // show every image the same ammount of time
+//       onUpdate: function() {
+//         $("#ameliaTurtle").attr("src", turtle_images[turtle_obj.curImg]); // set the image source
+//       }
+//     },
+//     0
+//   )
+//   .to(
+//     gull_obj,
+//     1.5,
+//     {
+//       curImg: gull_images.length - 1, // animate propery curImg to number of images
+//       roundProps: "curImg", // only integers so it can be used as an array index
+//       repeat: -1, // repeat
+//       immediateRender: true, // load first image automatically
+//       ease: Linear.easeNone, // show every image the same ammount of time
+//       onUpdate: function() {
+//         $("#ameliaGull").attr("src", gull_images[gull_obj.curImg]); // set the image source
+//       }
+//     },
+//     0
+//   );
 
 // init controller
-var hero_controller = new ScrollMagic.Controller();
+// var hero_controller = new ScrollMagic.Controller();
 // build scene
-var hero_scene = new ScrollMagic.Scene({
-    triggerElement: ".hero",
-    duration: 0,
-})
-    .setTween(hero_tween)
-    // .addIndicators("hero_trigger") // add indicators (requires plugin)
-    .addTo(hero_controller);
+// var hero_scene = new ScrollMagic.Scene({
+//     triggerElement: ".hero",
+//     duration: 0,
+// })
+//     .setTween(hero_tween)
+//     // .addIndicators("hero_trigger") // add indicators (requires plugin)
+//     .addTo(hero_controller);
 
 
 

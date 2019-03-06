@@ -15,7 +15,7 @@ article#mmg-amelia-app-lp {
     @include marding(0, 0 8%);
   }
   .hero {
-    background-image: url(../img/header-bgimg.jpg);
+    background-image: url(../img/header-bgimg-flat.jpg);
     position: relative;
     background-position: center bottom;
     background-size: cover;
@@ -70,6 +70,7 @@ article#mmg-amelia-app-lp {
     position: relative;
   }
   .section-content {
+    overflow: hidden;
     z-index: 10;
     padding: 5% 30px;
     height: 100%;
@@ -167,23 +168,26 @@ article#mmg-amelia-app-lp {
     img.guide {
       position: relative;
       width: 89%;
+      min-width: 575px;
       height: auto;
-      margin: 40px 0 100px;
-      transform: translate(-18%, 100px);
+      margin: 40px 0 50px;
+        @include translate(-18%, 50px);
     }
     #ameliaFort {
       -webkit-filter: drop-shadow(0 23px 4px rgba(0, 0, 0, 0.35));
       filter: drop-shadow(0 23px 4px rgba(0, 0, 0, 0.35));
     }
     .section-content {
+      overflow: visible;
       z-index: 10;
     }
     .imagesequence {
       position: absolute;
-      left: 74%;
+      left: 0;
       bottom: 10%;
-      @include translate(-50%, -50%);
+      @include translate(35%, -50%);
       width: 74%;
+      min-width: 393px;
       img {
         height: auto;
         width: 100%;
@@ -220,6 +224,7 @@ article#mmg-amelia-app-lp {
     background: #fff;
     position: relative;
     display: block;
+    max-width: 100%;
     input,
     select,
     textarea {
@@ -292,10 +297,10 @@ article#mmg-amelia-app-lp {
       }
     }
     .heading {
-      font-size: 36px;
+      font-size: 34px;
     }
     .subheading {
-      //   font-size: 1.2em;
+      font-size: 1.1em;
     }
     .FormPanel,
     .instructions {
@@ -339,9 +344,10 @@ article#mmg-amelia-app-lp {
     }
     section {
       &.fort-sequence .imagesequence {
-        left: 60%;
-        bottom: 4%;
-        width: 60%;
+        left: 0;
+        @include translateX(21%);
+    bottom: 18%;
+    width: 60%;
       }
       .aspect-spacer,
       .space-bottom {
@@ -349,9 +355,10 @@ article#mmg-amelia-app-lp {
       }
     }
     .heading {
-      font-size: 26px;
+      font-size: 22px;
     }
     .subheading {
+      font-size: 1em;
     }
     .field:not(.submit-wrapper) {
       margin-bottom: 20px;
