@@ -284,6 +284,11 @@ article#mmg-amelia-app-lp {
   @media (max-width: 959px){
       overflow: hidden;
   }
+  @media (max-width: 620px){
+    .bottom-panel {
+        background-position: 40% bottom;
+    }
+  }
   @media (min-width: 768px) and(max-width: 959px) {
     .hero .space-bottom {
       padding-bottom: 65%;
@@ -349,8 +354,8 @@ article#mmg-amelia-app-lp {
       &.fort-sequence .imagesequence {
         left: 0;
         @include translateX(21%);
-    bottom: 18%;
-    width: 60%;
+        bottom: 18%;
+        width: 60%;
       }
       .aspect-spacer,
       .space-bottom {
