@@ -24,7 +24,10 @@ $("select").each(function () {
 });
 
 // define images
-
+function preloadImage(url) {
+    var img = new Image();
+    img.src = url;
+}
 function buildImgArray(folder, fileName, n, x) {
     x=x||1;
     Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
@@ -35,17 +38,19 @@ function buildImgArray(folder, fileName, n, x) {
     for(i=0;i<n;i++){
 
         if (i % x ==0){//using this to lessen the picture count if needed.
-        arr.push('./img/sequences/' + folder + '/' + fileName+ i.pad(2) +'.png');
+        var url = './img/sequences/' + folder + '/' + fileName + i.pad(2) + '.png';
+        preloadImage(url);
+        arr.push(url);
         }
     }
     return arr;
 }
 
 ////FORT ANIMATION
-var images = buildImgArray('fort-small', 'FortClinch00', 50);
+var images = buildImgArray('fort-small', 'FortClinch00', 50,2);
 // console.log(images);
 var obj = { curImg: 0 };
-var tween = TweenMax.to(obj, 0.75, {
+var tween = TweenMax.to(obj, 3, {
     curImg: images.length - 1, // animate propery curImg to number of images
     roundProps: "curImg", // only integers so it can be used as an array index
     repeat: 0, // repeat 3 times
@@ -65,18 +70,23 @@ var scene = new ScrollMagic.Scene({
     triggerHook: .85
 })
     .setTween(tween)
-    // .addIndicators("FORT trigger") // add indicators (requires plugin)
+    // .addIndicators({
+    //     name: 'FORT',
+    //     indent: 50,
+    //     // colorStart: 'green',
+    //     // colorTrigger: 'red'
+    // }) // add indicators (requires plugin)
     .addTo(controller);
 
 
 //// TURTLE ANIMATION
-var turtle_images = buildImgArray('turtle', 'Turtle00', 16);
+// var turtle_images = buildImgArray('turtle', 'Turtle00', 16);
 // console.log(images,gull_images,turtle_images);
-var turtle_obj = { curImg: 0 };
+// var turtle_obj = { curImg: 0 };
 //// GULL ANIMATION
-var gull_images = buildImgArray('gulls', 'Gulls00', 50,2);
+// var gull_images = buildImgArray('gulls', 'Gulls00', 50,2);
 // console.log(images,gull_images,gull_images);
-var gull_obj = { curImg: 0 };
+// var gull_obj = { curImg: 0 };
 // var hero_tween = new TimelineMax();
 // hero_tween
 //   .to(
