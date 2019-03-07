@@ -118,16 +118,22 @@ article#mmg-amelia-app-lp {
     }
     h1,
     .error-wrapper {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: -1;
       grid-column: 1 / -1;
     }
     .field.guide-cbox {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: -1;
       grid-column: 1/-1;
     }
     .form {
       max-width: 100%;
+      display: -ms-grid;
       display: grid;
       grid-column-gap: 30px;
       grid-row-gap: 20px;
+      -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
     }
     .checkbox label span:before {
@@ -171,7 +177,7 @@ article#mmg-amelia-app-lp {
       min-width: 575px;
       height: auto;
       margin: 40px 0 50px;
-        @include translate(-18%, 50px);
+      @include translate(-18%, 50px);
     }
     #ameliaFort {
       -webkit-filter: drop-shadow(0 23px 4px rgba(0, 0, 0, 0.35));
@@ -268,6 +274,37 @@ article#mmg-amelia-app-lp {
       padding: 5px 15px;
     }
   }
+  .list-cbox {
+
+    -ms-grid-column: 1;
+    -ms-grid-column-span: -1;
+    grid-column: 1 / -1;
+    .checkbox {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: minmax(auto, 255px) minmax(auto, 255px);
+      grid-template-columns: minmax(auto, 255px) minmax(auto, 255px);
+      padding: 5px 15px 10px;
+      label {
+        font-weight: 500;
+        flex: 1 1 49.5%;
+        span {
+          position: relative;
+          &:before {
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+    h2 {
+      // text-align:center;
+      margin: 10px auto 0;
+      padding: 0 15px;
+      display: block;
+    }
+    br{display:none;}
+  }
   .app-cta {
     .section-content {
       padding: 10px 30px 20px;
@@ -281,12 +318,12 @@ article#mmg-amelia-app-lp {
     }
   }
   /////Media Queries///////
-  @media (max-width: 959px){
-      overflow: hidden;
+  @media (max-width: 959px) {
+    overflow: hidden;
   }
-  @media (max-width: 620px){
+  @media (max-width: 620px) {
     .hero {
-        background-position: 40% bottom;
+      background-position: 40% bottom;
     }
   }
   @media (min-width: 768px) and(max-width: 959px) {
@@ -318,6 +355,8 @@ article#mmg-amelia-app-lp {
       grid-template-columns: 1fr 1fr;
     }
     .submit-wrapper {
+      -ms-grid-column-align: 1;
+      -ms-grid-column-span: -1;
       grid-column: 1 / -1;
     }
     .hero {
@@ -341,6 +380,10 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 479px) {
+    .list-cbox .checkbox {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+    }
     .hero {
       #imagesequence2 {
         width: 414px;

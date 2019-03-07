@@ -70,12 +70,12 @@ var scene = new ScrollMagic.Scene({
     triggerHook: .85
 })
     .setTween(tween)
-    // .addIndicators({
-    //     name: 'FORT',
-    //     indent: 50,
-    //     // colorStart: 'green',
-    //     // colorTrigger: 'red'
-    // }) // add indicators (requires plugin)
+    .addIndicators({
+        name: 'FORT',
+        indent: 50,
+        // colorStart: 'green',
+        // colorTrigger: 'red'
+    }) // add indicators (requires plugin)
     .addTo(controller);
 
 
@@ -150,16 +150,23 @@ var scene = new ScrollMagic.Scene({
 (function ($) {
     var $submit = $('input[type="submit"]');
     $('.horizontal-group').each(function (i) {
-        var checkboxDiv = $(this).find('.checkbox').length > 0;
+        var isCheckbox = $(this).find('.checkbox').length > 0;
+        var $field = $(this).children('.field');
         $(this).find('.field').each(function () {
             if ($(this).find('input,select,textarea').length == 0) {
                 $(this).remove();
             }
         });
-        if (i == 0) { $(this).children('.field').addClass('guide-cbox').children('p').remove();}
-        if (i == 0 || !checkboxDiv) {
-            $(this).children('.field').unwrap();
+        if (i == 0) {
+            $field.addClass('guide-cbox').children('p').remove();
+            $field.find('input[type="checkbox"]').attr('checked', true);
         }
+        if (i != 0 && isCheckbox) {
+            $(this).find('.checkbox').unwrap();
+            $(this).prev('h2').prependTo($field);
+            $field.addClass('list-cbox');
+        }
+        $(this).children('.field').unwrap();
     });
     var $lastField = $('.field:last');
     var instructions = $lastField.text();
