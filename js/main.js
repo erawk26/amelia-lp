@@ -70,12 +70,12 @@ var scene = new ScrollMagic.Scene({
     triggerHook: .85
 })
     .setTween(tween)
-    .addIndicators({
-        name: 'FORT',
-        indent: 50,
-        // colorStart: 'green',
-        // colorTrigger: 'red'
-    }) // add indicators (requires plugin)
+    // .addIndicators({
+    //     name: 'FORT',
+    //     indent: 50,
+    //     // colorStart: 'green',
+    //     // colorTrigger: 'red'
+    // }) // add indicators (requires plugin)
     .addTo(controller);
 
 
