@@ -8,8 +8,10 @@ article#mmg-amelia-app-lp {
     line-height: 1;
     font-size: 42px;
     @extend .bold;
+    max-width: 100%;
   }
   .subheading {
+    max-width: 100%;
     font-size: 1.2em;
     line-height: 1.2;
     @include marding(0, 0 8%);
@@ -82,8 +84,8 @@ article#mmg-amelia-app-lp {
     @include translate(-50%, -50%);
     &.rel {
       position: relative;
-      left: unset;
-      top: unset;
+      left: auto;
+      top: auto;
       transform: none;
     }
   }
@@ -141,6 +143,41 @@ article#mmg-amelia-app-lp {
     }
   }
 
+  &.grid-disabled {
+    %full-width {
+      display: block;
+      width: 100%;
+      @include flexchild(1, 0, 100%);
+      min-width: 100%;
+      max-width: 100%;
+    }
+    .form {
+      @include flexx(flex-start, $wrap: wrap);
+      @include flex-grid(3, 15px);
+      h1 {
+        @extend %full-width;
+        width: 100%;
+      }
+      .field {
+        &.guide-cbox,
+        &.list-cbox {
+          @extend %full-width;
+        }
+        &.half-wide,
+        &.one-fourth-wide {
+          //   width: 33%;
+          //   padding: 0;
+        }
+      }
+    }
+    .submit-wrapper {
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+  }
   *:not(.checkbox) > {
     label {
       font-weight: 500;
@@ -200,9 +237,9 @@ article#mmg-amelia-app-lp {
       }
     }
     & > .video video.background-video {
-      top: unset;
-      min-width: unset;
-      min-height: unset;
+      top: auto;
+      min-width: 1px;
+      min-height: 1px;
       left: 50%;
       bottom: 0px;
       height: 60%;
@@ -219,7 +256,7 @@ article#mmg-amelia-app-lp {
       // @include translateX(-50%)
     }
   }
-  .form.full-wide.new-form,
+  .FormPanel,
   .instructions {
     @include set-max-width(750px);
     font-size: 0.8em;
@@ -229,7 +266,7 @@ article#mmg-amelia-app-lp {
     @include marding;
     background: #fff;
     position: relative;
-    display: block;
+    display: inline-block;
     max-width: 100%;
     input,
     select,
@@ -275,7 +312,6 @@ article#mmg-amelia-app-lp {
     }
   }
   .list-cbox {
-
     -ms-grid-column: 1;
     -ms-grid-column-span: -1;
     grid-column: 1 / -1;
@@ -287,7 +323,7 @@ article#mmg-amelia-app-lp {
       padding: 5px 15px 10px;
       label {
         font-weight: 500;
-        flex: 1 1 49.5%;
+        @include flexchild(1, 1, 49.5%);
         span {
           position: relative;
           &:before {
@@ -303,7 +339,9 @@ article#mmg-amelia-app-lp {
       padding: 0 15px;
       display: block;
     }
-    br{display:none;}
+    br {
+      display: none;
+    }
   }
   .app-cta {
     .section-content {
@@ -352,6 +390,7 @@ article#mmg-amelia-app-lp {
       padding: 0 30px;
     }
     .form-grid .form {
+      -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
     }
     .submit-wrapper {

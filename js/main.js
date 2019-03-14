@@ -1,3 +1,25 @@
+// https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+if (!String.prototype.padStart) {
+    String.prototype.padStart = function padStart(targetLength, padString) {
+        targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
+        padString = String(typeof padString !== 'undefined' ? padString : ' ');
+        if (this.length >= targetLength) {
+            return String(this);
+        } else {
+            targetLength = targetLength - this.length;
+            if (targetLength > padString.length) {
+                padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
+            }
+            return padString.slice(0, targetLength) + String(this);
+        }
+    };
+}
+Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
+    return (this + "").padStart(size, "0")
+}
+
+
 // Contact form label slide
 $("input,select,textarea")
     .focus(function () {
@@ -30,10 +52,6 @@ function preloadImage(url) {
 }
 function buildImgArray(folder, fileName, n, x) {
     x=x||1;
-    Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
-        var sign = Math.sign(this) === -1 ? '-' : '';
-        return sign + new Array(size).concat([Math.abs(this)]).join('0').slice(-size);
-    }
     var arr=[];
     for(i=0;i<n;i++){
 
@@ -149,6 +167,8 @@ var scene = new ScrollMagic.Scene({
 /////fix MAILCHIMP FORM////////
 (function ($) {
     var $submit = $('input[type="submit"]');
+    var parentDiv = '#mmg-amelia-app-lp';
+
     $('.horizontal-group').each(function (i) {
         var isCheckbox = $(this).find('.checkbox').length > 0;
         var $field = $(this).children('.field');
@@ -173,4 +193,8 @@ var scene = new ScrollMagic.Scene({
     $lastField.html($submit).addClass('submit-wrapper');
     $('<span class="error-wrapper"><div class="form-error" style="display: none;"></div></span>').appendTo($('.form-grid .form'))
     $('<p class="instructions center-text color gray">' + instructions + '</p>').appendTo($('.form-grid'));
+
+    var noIE = navigator.userAgent.indexOf('Trident') == -1;
+    if (!noIE) { $(parentDiv).addClass('grid-disabled')};
+
 })(jQuery);

@@ -84,4 +84,9 @@ article#mmg-amelia-app-lp {
       @include flexx(flex-end, $wrap: wrap);
     }
   }
+  .cf:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
