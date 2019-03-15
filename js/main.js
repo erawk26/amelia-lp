@@ -16,8 +16,8 @@ if (!String.prototype.padStart) {
     };
 }
 Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
-    return (this + "").padStart(size, "0")
-}
+    return (this + "").padStart(size, "0");
+};
 
 
 // Contact form label slide
@@ -34,7 +34,7 @@ $("input,select,textarea")
             .closest(".field")
             .children("label");
         // console.log("exit", ele);
-        if ($(this).val() == "") {
+        if ($(this).val() === "") {
             ele.removeClass("slide-up");
         }
     });
@@ -50,22 +50,35 @@ function preloadImage(url) {
     var img = new Image();
     img.src = url;
 }
-function buildImgArray(folder, fileName, n, x) {
-    x=x||1;
-    var arr=[];
-    for(i=0;i<n;i++){
+function buildImgArray() {
+    //x=x||1;
+    //Number.prototype.pad = function (size) {//pad preceeding zero's to the numbers
+    //    var sign = Math.sign(this) === -1 ? '-' : '';
+    //    return sign + new Array(size).concat([Math.abs(this)]).join('0').slice(-size);
+    //}
+    //var arr=[];
+    //for(i=0;i<n;i++){
 
-        if (i % x ==0){//using this to lessen the picture count if needed.
-        var url = './img/sequences/' + folder + '/' + fileName + i.pad(2) + '.png';
-        preloadImage(url);
-        arr.push(url);
-        }
+    //    if (i % x === 0){//using this to lessen the picture count if needed.
+    //    var url = './img/sequences/' + folder + '/' + fileName + i.pad(2) + '.png';
+    //    preloadImage(url);
+    //    arr.push(url);
+    //    }
+    //}
+    //return arr;
+
+    var imgArr = sequenceImages.split(';');
+
+    for (var i = 0; i < imgArr.length; i++) {
+        preloadImage(imgArr[i]);
     }
-    return arr;
+
+    return imgArr;
 }
 
 ////FORT ANIMATION
-var images = buildImgArray('fort-small', 'FortClinch00', 50,2);
+var images = buildImgArray();
+
 // console.log(images);
 var obj = { curImg: 0 };
 var tween = TweenMax.to(obj, 3, {
@@ -153,7 +166,7 @@ var scene = new ScrollMagic.Scene({
 
     ///// smooth scroll /////
     $('a[href*="#"]:not([href="#"])').click(function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
@@ -173,15 +186,15 @@ var scene = new ScrollMagic.Scene({
         var isCheckbox = $(this).find('.checkbox').length > 0;
         var $field = $(this).children('.field');
         $(this).find('.field').each(function () {
-            if ($(this).find('input,select,textarea').length == 0) {
+            if ($(this).find('input,select,textarea').length === 0) {
                 $(this).remove();
             }
         });
-        if (i == 0) {
+        if (i === 0) {
             $field.addClass('guide-cbox').children('p').remove();
             $field.find('input[type="checkbox"]').attr('checked', true);
         }
-        if (i != 0 && isCheckbox) {
+        if (i !== 0 && isCheckbox) {
             $(this).find('.checkbox').unwrap();
             $(this).prev('h2').prependTo($field);
             $field.addClass('list-cbox');
@@ -191,10 +204,10 @@ var scene = new ScrollMagic.Scene({
     var $lastField = $('.field:last');
     var instructions = $lastField.text();
     $lastField.html($submit).addClass('submit-wrapper');
-    $('<span class="error-wrapper"><div class="form-error" style="display: none;"></div></span>').appendTo($('.form-grid .form'))
+    $('<span class="error-wrapper"><div class="form-error" style="display: none;"></div></span>').appendTo($('.form-grid .form'));
     $('<p class="instructions center-text color gray">' + instructions + '</p>').appendTo($('.form-grid'));
 
-    var noIE = navigator.userAgent.indexOf('Trident') == -1;
-    if (!noIE) { $(parentDiv).addClass('grid-disabled')};
+    var noIE = navigator.userAgent.indexOf('Trident') === -1;
+    if (!noIE) { $(parentDiv).addClass('grid-disabled'); }
 
 })(jQuery);
