@@ -142,21 +142,40 @@ article#mmg-amelia-app-lp {
       font-family: $iconFamily;
     }
   }
-
+  %full-width {
+    float: none;
+    display: block;
+    width: 100%;
+    //   @include flexchild(1, 0, 100%);
+    //   min-width: 100%;
+    max-width: 100%;
+    clear: both;
+  }
+  $spacing: 15px;
   &.grid-disabled {
-    %full-width {
-      display: block;
-      width: 100%;
-      @include flexchild(1, 0, 100%);
-      min-width: 100%;
-      max-width: 100%;
+    .instructions {
+      @extend %full-width;
     }
     .form {
-      @include flexx(flex-start, $wrap: wrap);
-      @include flex-grid(3, 15px);
+      margin-top: -$spacing;
+      margin-left: -$spacing;
+      width: 100%;
+      display: block;
+      & > * {
+        float: left;
+        margin-top: $spacing;
+        margin-left: $spacing;
+        box-sizing: border-box;
+        width: calc((99.5% / 3) - #{$spacing});
+        max-width: calc((100% / 3) - #{$spacing});
+      }
+      //   @include flexx(flex-start, $wrap: wrap);
+      //   @include flex-grid(3, 15px);
       h1 {
         @extend %full-width;
-        width: 100%;
+      }
+      .list-cbox .checkbox {
+        display: block;
       }
       .field {
         &.guide-cbox,
@@ -370,6 +389,17 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 767px) {
+    &.grid-disabled .form {
+      > * {
+        width: calc((99.5% / 2) - #{$spacing});
+        max-width: calc((100% / 2) - #{$spacing});
+      }
+      .submit-wrapper {
+        width:100%;
+        max-width:100%;
+        float:none;
+      }
+    }
     .section-content {
       padding-top: 50px;
     }
@@ -419,6 +449,10 @@ article#mmg-amelia-app-lp {
     }
   }
   @media (max-width: 479px) {
+    &.grid-disabled .form > * {
+      width: 100%;
+      max-width: 100%;
+    }
     .list-cbox .checkbox {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
