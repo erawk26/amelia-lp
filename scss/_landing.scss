@@ -106,6 +106,9 @@ article#mmg-amelia-app-lp {
       width: auto;
       height: auto;
       @include translate(-50%, -50%);
+      border: none;
+      outline: none;
+      background: transparent;
       &:focus {
         outline: none;
       }
@@ -267,6 +270,12 @@ article#mmg-amelia-app-lp {
       height: 60%;
       opacity: 0.35;
       width: auto;
+      border: none;
+      outline: none;
+      background: transparent;
+      &:focus {
+        outline: none;
+      }
       &:nth-of-type(1) {
         left: 54%;
         transform: translateX(-100%);
