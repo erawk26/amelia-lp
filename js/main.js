@@ -1,7 +1,8 @@
-if ($("video").length > 0) {
-    var mobilevideo = document.getElementsByTagName("video")[0];
-    mobilevideo.setAttribute("playsinline", "");
-    mobilevideo.setAttribute("muted", "");
+if ($(".video video").length > 0) {
+  $(".video video").each(function() {
+    $(this).attr("playsinline", "true");
+    $(this).attr("muted", "true");
+  });
   var playPromise = document.querySelector("video").play();
   // In browsers that don’t yet support this functionality,
   // playPromise won’t be defined.
@@ -64,7 +65,7 @@ function buildImgArray() {
 }
 
 ////FORT ANIMATION
-var images = [];//buildImgArray();
+var images = []; //buildImgArray();
 
 // console.log(images);
 var obj = { curImg: 0 };

@@ -106,6 +106,9 @@ article#mmg-amelia-app-lp {
       width: auto;
       height: auto;
       @include translate(-50%, -50%);
+      &:focus {
+        outline: none;
+      }
     }
   }
   .form-grid {
@@ -395,9 +398,9 @@ article#mmg-amelia-app-lp {
         max-width: calc((100% / 2) - #{$spacing});
       }
       .submit-wrapper {
-        width:100%;
-        max-width:100%;
-        float:none;
+        width: 100%;
+        max-width: 100%;
+        float: none;
       }
     }
     .section-content {
