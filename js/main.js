@@ -1,28 +1,31 @@
 if ($(".video video").length > 0) {
-  $(".video video").each(function() {
-    $(this).attr("playsinline", "true");
-    $(this).attr("muted", "true");
-  });
-  var playPromise = document.querySelector("video").play();
+  var playPromise = $("video")[0].play();
   // In browsers that don’t yet support this functionality,
   // playPromise won’t be defined.
   if (playPromise !== undefined) {
     playPromise
       .then(function(res) {
-        // alert('video auto-played!');// Automatic playback started!
+        playVids(true);
       })
       .catch(function(error) {
-        // alert("video autoplay is not supported in this browser\n");
-        // console.log(error);
-        // replace the background video with an image
-        var $videoPoster = $("#bg-video").attr("poster"),
-          $videoImg = $("<img />", {
-            id: "bg-video",
-            src: $videoPoster
-          });
-        $("#bg-video").replaceWith($videoImg);
+        playVids(false);
       });
   }
+}
+function playVids(x) {
+  $(".video video").each(function() {
+    if (x) {
+      $(this).attr("playsinline", "true");
+      $(this).attr("muted", "true");
+    } else {
+      var $videoPoster = $(this).attr("poster"),
+        $videoImg = $("<img />", {
+          class: ".background-video",
+          src: $videoPoster
+        });
+      $(this).remove(); //.replaceWith($videoImg);
+    }
+  });
 }
 // Contact form label slide
 $("input,select,textarea")
@@ -55,7 +58,7 @@ function preloadImage(url) {
   img.src = url;
 }
 function buildImgArray() {
-  var imgArr = sequenceImages.split(";");
+  var imgArr = []; //sequenceImages.split(";");
 
   for (var i = 0; i < imgArr.length; i++) {
     preloadImage(imgArr[i]);
@@ -65,7 +68,7 @@ function buildImgArray() {
 }
 
 ////FORT ANIMATION
-var images = []; //buildImgArray();
+var images = buildImgArray();
 
 // console.log(images);
 var obj = { curImg: 0 };
