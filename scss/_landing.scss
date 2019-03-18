@@ -98,6 +98,9 @@ article#mmg-amelia-app-lp {
     overflow: hidden;
     // z-index: -5;
     video.background-video {
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -264,7 +267,7 @@ article#mmg-amelia-app-lp {
       }
     }
     & > .video {
-        background:white;
+      background: white;
       video.background-video {
         top: auto;
         min-width: 1px;
