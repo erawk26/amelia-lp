@@ -15,8 +15,10 @@ if ($(".video video").length > 0) {
 function playVids(x) {
   $(".video video").each(function() {
     if (x) {
-      $(this).attr("playsinline", "true");
-      $(this).attr("muted", "true");
+        $(this).attr("playsinline", "");
+        $(this).attr("muted", "");
+        $(this).attr("autoplay", "");
+        $(this).attr("loop", "");
     } else {
       var $videoPoster = $(this).attr("poster"),
         $videoImg = $("<img />", {
@@ -58,7 +60,7 @@ function preloadImage(url) {
   img.src = url;
 }
 function buildImgArray() {
-  var imgArr = []; //sequenceImages.split(";");
+  var imgArr = [];//sequenceImages.split(";");
 
   for (var i = 0; i < imgArr.length; i++) {
     preloadImage(imgArr[i]);

@@ -107,7 +107,8 @@ article#mmg-amelia-app-lp {
       height: auto;
       @include translate(-50%, -50%);
       @include marding;
-      border: none;
+      color: transparent;
+      border-color: transparent;
       outline: none;
       background: transparent;
       &:focus {
@@ -262,28 +263,25 @@ article#mmg-amelia-app-lp {
         width: 100%;
       }
     }
-    & > .video video.background-video {
-      top: auto;
-      min-width: 1px;
-      min-height: 1px;
-      left: 50%;
-      bottom: 0px;
-      height: 60%;
-      opacity: 0.35;
-      width: auto;
-      border: none;
-      outline: none;
-      background: transparent;
-      &:focus {
-        outline: none;
-      }
-      &:nth-of-type(1) {
-        left: 54%;
-        transform: translateX(-100%);
-      }
-      &:nth-of-type(2) {
-        left: 46%;
-        transform: translateX(0);
+    & > .video {
+        background:white;
+      video.background-video {
+        top: auto;
+        min-width: 1px;
+        min-height: 1px;
+        left: 50%;
+        bottom: 0px;
+        height: 60%;
+        opacity: 0.35;
+        width: auto;
+        &:nth-of-type(1) {
+          left: 54%;
+          transform: translateX(-100%);
+        }
+        &:nth-of-type(2) {
+          left: 46%;
+          transform: translateX(0);
+        }
       }
       // @include translateX(-50%)
     }
